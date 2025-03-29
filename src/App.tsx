@@ -1,22 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React from "react"
+import { BrowserRouter, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Favourites from './pages/Favourites.tsx';
+import Homepage from './pages/Homepage.tsx';
+import History from './pages/History.tsx';
 
-import React from 'react';
-import Navbar from './components/Navbar';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <div>
-      <Navbar></Navbar>
-      <section className="m-12 flex h-screen items-center justify-center bg-green-400 text-center text-3xl p-12 md:p-14 lg:p-16 xl:p-20">
-        <p>Welcome to our Laptop Compatibility app</p>
-      </section>
-    </div>
+    <Routes>
+      {/* Route for Homepage */}
+      <Route path="/" element={<Homepage />} />
+      <Route path="/favourites" element={<Favourites />} />
+      <Route path="/history" element={<History />} />
+      {/* Route for Favourites */}
+    </Routes>
   );
 };
 
-
-
-export default App
+export default App;
